@@ -11,13 +11,16 @@ import java.time.Duration;
 
 public class HomePageScooter {
     private WebDriver driver;
-    //стрелка в разделе вопросы о важном
-    private By arrowInButton = By.xpath(".//div[@id='accordion__heading-0' and @role='button']");
-    //текст в разделе вопросы о важном
-    private By textInList = By.xpath(".//div[@id='accordion__panel-0' and @role='region']");
 
-    public HomePageScooter(WebDriver driver) {
+    //стрелка в разделе вопросы о важном
+    private By arrowInButton;
+    //текст в разделе вопросы о важном
+    private By textInList;
+
+    public HomePageScooter(WebDriver driver,String textArrow,String textInList) {
         this.driver=driver;
+        this.arrowInButton=By.xpath(".//div[text()='"+textArrow+"']");
+        this.textInList=By.xpath(".//p[text()='"+textInList+"']");
     }
 
     //метод для проверки текста в списке "Вопросы о важном"
